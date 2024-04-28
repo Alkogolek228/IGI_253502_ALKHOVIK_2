@@ -1,0 +1,7 @@
+Number of sentences: 5
+Number of declarative sentences: 2
+Number of interrogative sentences: 1
+Number of imperative sentences: 1
+Average sentence length: 88.6
+Average word length: 5.333333333333333
+Number of emoticons: 1
