@@ -1,0 +1,35 @@
+{% extends 'basic.html' %}
+{% block title %}Add Feedback{% endblock title %}
+{% block css %}
+ <style>
+    /* Your CSS styles here */
+ </style>
+{% endblock css %}
+{% block body %}
+ <h1 class="text-center bg-warning my-0">Add Feedback</h1>
+    <!--Feedback section -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-xlg-6 col-sm-12 mx-auto">
+                <form action="/home" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="text">Feedback:</label>
+                        <textarea class="form-control" id="text" name="text" rows="4" cols="50"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Rating:</label>
+                        <select class="form-control" name="rating" id="rating">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
