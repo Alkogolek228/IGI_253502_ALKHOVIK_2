@@ -2,7 +2,9 @@
 {% block title %}All Bookings
 {% endblock title %}
 {% block body %}
-<h3 class="text-center  text-success">All Bookings </h3>
+
+
+
 <table class="table">
     <thead>
         <th>User</th>
@@ -29,4 +31,34 @@
 
 
 </table>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<canvas id="revenueChart"></canvas>
+<script type="text/javascript">
+    var ctx = document.getElementById('revenueChart').getContext('2d');
+    var labels = {{locations|safe}};
+    var data = {{revenues|safe}};
+    
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Revenue',
+                data: data,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
 {% endblock body %}
+
+

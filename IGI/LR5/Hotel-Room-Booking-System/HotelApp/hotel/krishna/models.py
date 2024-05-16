@@ -93,10 +93,17 @@ class FAQ(models.Model):
     def __str__(self):
         return self.question
     
+class Tag(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
 class News(models.Model):
     title = models.CharField(max_length=200)
     text = models.TextField()
     img = models.ImageField(upload_to='news', blank=True)
+    tags = models.ManyToManyField(Tag, related_name='news')
 
     def __str__(self):
         return self.title

@@ -1,5 +1,6 @@
 from django.shortcuts import render ,redirect
 from django.http import HttpResponse , HttpResponseRedirect
+from sympy import Sum
 from .models import Hotels, Rooms, Reservation, PromoCode, FAQ, Company, News
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
@@ -23,15 +24,15 @@ def cat_fact(request):
     messages.info(request, data)
 
 def timer(request):
-    user_tz = request.session.get('django_timezone')
-    if user_tz:
-        timezone.activate(pytz.timezone(user_tz))
-    else:
-        timezone.deactivate()
     logger.info('Timezone: %s', timezone.get_current_timezone())
     user_time = timezone.localtime(timezone.now())
+    utc_time = timezone.now()
     tz = timezone.get_current_timezone()
-    data = {'user_time': user_time, 'utc_time': timezone.now(), 'tz': tz}
+    data = {
+        'user_time': user_time.strftime('%d-%m-%Y %H:%M:%S'),
+        'utc_time': utc_time.strftime('%d-%m-%Y %H:%M:%S'),
+        'tz': str(tz)
+    }
     messages.info(request, data)
 
 #homepage
@@ -94,13 +95,15 @@ def policypage(request):
 def user_sign_up(request):
     timer(request)
     if request.method =="POST":
-        if 'ageCheck' not in request.POST:
-            messages.warning(request,"You must be at least 18 years old to register")
-            return redirect('userloginpage')
         user_name = request.POST['username']
         
         password1 = request.POST['password1']
         password2 = request.POST['password2']
+        age_check = datetime.datetime.strptime(request.POST['agecheck'], "%Y-%m-%d")  # assuming ageCheck is in 'YYYY-MM-DD' format
+        print(age_check)
+        if age_check > datetime.datetime.now() - datetime.timedelta(days=18*365):
+            messages.warning(request, "You must be at least 18 years old to register")
+            return redirect('userloginpage')
 
         if password1 != password2:
             messages.warning(request,"Password didn't matched")
@@ -126,14 +129,16 @@ def user_sign_up(request):
 def staff_sign_up(request):
     timer(request)
     if request.method =="POST":
-        if 'ageCheck' not in request.POST:
-            messages.warning(request,"You must be at least 18 years old to register")
-            return redirect('userloginpage')
         user_name = request.POST['username']
         
         password1 = request.POST['password1']
         password2 = request.POST['password2']
-
+ 
+        age_check = datetime.datetime.strptime(request.POST['agecheck'], "%Y-%m-%d")  # assuming ageCheck is in 'YYYY-MM-DD' format
+        print(age_check)
+        if age_check > datetime.datetime.now() - datetime.timedelta(days=18*365):
+            messages.warning(request, "You must be at least 18 years old to register")
+            return redirect('staffloginpage')
         if password1 != password2:
             messages.success(request,"Password didn't Matched")
             return redirect('staffloginpage')
@@ -164,7 +169,6 @@ def user_log_sign_page(request):
         user = authenticate(username=email,password=password)
         try:
             if user.is_staff:
-                
                 messages.error(request,"Incorrect username or Password")
                 return redirect('staffloginpage')
         except:
@@ -199,13 +203,10 @@ def staff_log_sign_page(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-
         user = authenticate(username=username,password=password)
-        
         if user.is_staff:
             login(request,user)
             return redirect('staffpanel')
-        
         else:
             messages.success(request,"Incorrect username or password")
             return redirect('staffloginpage')
@@ -226,8 +227,11 @@ def panel(request):
     if request.user.is_staff == False:
         return HttpResponse('Access Denied')
     search_term = request.GET.get('search', '')
-    rooms = Rooms.objects.filter(roomnumber__icontains=search_term)
+    sort_by_price = request.GET.get('sort_by_price', '')
+    rooms = Rooms.objects.filter(price__icontains=search_term)
     #rooms = Rooms.objects.all()
+    if sort_by_price:
+        rooms = rooms.order_by('price')
     total_rooms = len(rooms)
     available_rooms = len(Rooms.objects.all().filter(status='1'))
     unavailable_rooms = len(Rooms.objects.all().filter(status='2'))
@@ -416,10 +420,21 @@ def add_new_location(request):
 @login_required(login_url='/staff')
 def all_bookings(request):
     timer(request)
+    #calculate revenue for each location
+    hotels = Hotels.objects.all()
+    revenues = []
+    locations = []
+    for hotel in hotels:
+        revenue = 0
+        for reservation in Reservation.objects.all().filter(room__hotel__location=hotel.location):
+            revenue += reservation.room.price
+        revenues.append(revenue)
+        locations.append(hotel.location)
     bookings = Reservation.objects.all()
+    print(revenues)
     if not bookings:
         messages.warning(request,"No Bookings Found")
-    return HttpResponse(render(request,'staff/allbookings.html',{'bookings':bookings}))
+    return HttpResponse(render(request,'staff/allbookings.html',{'bookings':bookings, 'revenues': revenues, 'locations': locations}))
 
 @login_required(login_url='/staff')
 def add_new_promo(request):

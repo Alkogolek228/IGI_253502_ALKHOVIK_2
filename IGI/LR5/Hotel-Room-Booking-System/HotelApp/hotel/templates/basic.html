@@ -126,4 +126,8 @@
 </body>
 {% block js %}
 {% endblock js %}
+
+<script type="text/javascript">
+    document.cookie = 'timezone=' + Intl.DateTimeFormat().resolvedOptions().timeZone;
+</script>
 </html>
