@@ -1,0 +1,13 @@
+{% extends 'basic.html' %}
+{% block body %}
+{% block title %}{{ news.title }}{% endblock title %}
+<div class="container mt-5">
+    <h2>{{ news.title }}</h2>
+    {% if news.img %}
+    <img src="{{ news.img.url }}" class="img-fluid mb-4" alt="{{ news.title }}">
+    {% endif %}
+    <div class="news-text" style="column-count: 2; column-gap: 30px;">
+        <p>{{ news.text }}</p>
+    </div>
+</div>
+{% endblock body %}

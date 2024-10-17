@@ -1,0 +1,61 @@
+{% extends 'basic.html' %}
+{% block title %}All Bookings
+{% endblock title %}
+{% block body %}
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+            <th>User</th>
+            <th>Room</th>
+            <th>Location</th>
+            <th>Person</th>
+            <th>Check in</th>
+            <th>Check out</th>
+            <th>Price</th>
+            <th>Child</th>
+        </thead>
+        {% for each_booking in bookings %}
+        <tr>
+            <td>{{each_booking.guest.username}}</td>
+            <td>{{each_booking.room.roomnumber}}</td>
+            <td>{{each_booking.room.hotel.location}}</td>
+            <td>{{each_booking.room.capacity}}</td>
+            <td>{{each_booking.check_in}}</td>
+            <td>{{each_booking.check_out}}</td>
+            <td>{{each_booking.room.price}}</td>
+            <td>{{each_booking.has_child}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<canvas id="revenueChart"></canvas>
+<script type="text/javascript">
+    var ctx = document.getElementById('revenueChart').getContext('2d');
+    var labels = {{locations|safe}};
+    var data = {{revenues|safe}};
+    
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Revenue',
+                data: data,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+{% endblock body %}
+
+

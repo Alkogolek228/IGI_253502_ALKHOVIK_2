@@ -1,0 +1,20 @@
+{% extends 'basic.html' %}
+{% block title %}View Feedback{% endblock title %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Feedback</h2>
+    <div class="row">
+        {% for feedback in feedback_list %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ feedback.name }}</h5>
+                    <p class="card-text">{{ feedback.text }}</p>
+                    <p class="card-text"><strong>Rating:</strong> {{ feedback.rating }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,981 @@
+/* Подключение шрифтов */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+}
+
+/* Стили для контейнера */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: transparent;
+}
+
+.content-container {
+    background-color: white; 
+    border-radius: 15px; 
+    padding: 20px; 
+    margin: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0; 
+    transform: translateY(20px); /* Начальное смещение */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Плавный переход */
+    z-index: 1;
+}
+
+.content-container.visible {
+    opacity: 1; /* Конечная непрозрачность */
+    transform: translateY(0); /* Конечное смещение */
+}
+
+.container-fluid {
+    width: 100%;
+    margin: 50px;
+    padding: 15px;
+    background-color: #d8d8d8;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    z-index: 1;
+}
+
+/* Стили для заголовков */
+h1, h2, h3, h4, h5, h6 {
+    color: #5c4d4d;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* Стили для текста */
+p {
+    color: #584747;
+    line-height: 1;
+    margin-bottom: 5px;
+    text-indent: 2em;
+}
+
+.label {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Стили для изображений */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Стили для видео */
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Стили для таблиц */
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #24078f;
+    border-collapse: collapse;
+    background-color: transparent;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #ffffff;
+    background-color: transparent;
+    text-decoration-color: #ffffff;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #ffffff;
+    background-color: transparent;
+}
+
+.table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+    background-color: transparent;
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+    background-color: transparent;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #dee2e6;
+    background-color: transparent;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: transparent;
+}
+
+/* Стили для ссылок */
+a:link {
+    color: blue;
+}
+a:visited {
+    color: purple;
+}
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+a:active {
+    color: green;
+}
+
+a:focus {
+    outline: 2px solid orange; /* Обводка при фокусе */
+}
+
+/* Стили для форм */
+input:focus, textarea:focus, select:focus {
+    outline: 2px solid #007bff; 
+}
+input:required {
+    border: 2px solid red;
+}
+input:disabled {
+    background-color: #e9ecef;
+}
+input:checked {
+    background-color: transparent;
+}
+
+input:required {
+    border: 2px solid red; /* Обязательные элементы */
+}
+
+input:optional {
+    border: 2px solid green; /* Необязательные элементы */
+}
+
+input:in-range {
+    border: 2px solid blue; /* Элементы со значениями в диапазоне */
+}
+
+input:out-of-range {
+    border: 2px solid orange; /* Элементы со значениями вне диапазона */
+}
+
+/* Отображение кавычек в зависимости от языка цитаты */
+q:lang(en) {
+    quotes: "“" "”" "‘" "’"; /* Кавычки для английского языка */
+}
+
+q:lang(fr) {
+    quotes: "«" "»" "‹" "›"; /* Кавычки для французского языка */
+}
+
+q:lang(de) {
+    quotes: "„" "“" "‚" "‘"; /* Кавычки для немецкого языка */
+}
+
+q:lang(ru) {
+    quotes: "«" "»" "„" "“"; /* Кавычки для русского языка */
+}
+
+/* Псевдоэлементы */
+p::first-letter {
+    font-size: 2em;
+    font-weight: bold;
+}
+/*p::before {
+    content: "|";
+}
+p::after {
+    content: "|";
+} */
+
+/* Стили для списков */
+ul {
+    list-style-type: none;
+}
+ul li::before {
+    content: "\2022";
+    color: #007bff;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    background-color: transparent;
+}
+
+/* Стили для элементов списка */
+ul li:first-child {
+    font-weight: bold; /* Первый элемент списка */
+}
+
+ul li:last-child {
+    font-style: italic; /* Последний элемент списка */
+}
+
+/* Стили для элементов таблицы */
+table tr:first-child {
+    font-weight: bold; /* Первая строка таблицы */
+}
+
+table tr:last-child {
+    font-style: italic; /* Последняя строка таблицы */
+}
+
+table tr:nth-child(odd) {
+    background-color: #f0f0f0; /* Нечетные строки таблицы */
+}
+
+table tr:nth-child(even) {
+    background-color: #e0e0e0; /* Четные строки таблицы */
+}
+
+/* Медиа-запросы */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    p {
+        font-size: 1em;
+    }
+}
+
+/* Стили для кнопок */
+button {
+    cursor: pointer;
+}
+
+/* Стили для текста */
+.text-uppercase {
+    text-transform: uppercase;
+}
+.text-capitalize {
+    text-transform: capitalize;
+}
+.text-lowercase {
+    text-transform: lowercase;
+}
+.text-small-caps {
+    font-variant: small-caps;
+}
+.text-indent {
+    text-indent: 2em;
+}
+.text-spacing {
+    letter-spacing: 0.1em;
+    word-spacing: 0.2em;
+}
+.text-align {
+    text-align: justify;
+}
+
+.company-logo {
+    transform: rotate(10deg); /* Пример трансформации */
+    transition: transform 0.3s ease-in-out;
+}
+.company-logo:hover {
+    transform: rotate(0deg); /* Пример трансформации при наведении */
+}
+
+/* Стили для истории компании */
+.history-list {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+.history-list li {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Стили для сертификата */
+.certificate {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    /* background: linear-gradient(to bottom, #ffffff, #ff0000); */
+    border: 50px solid #007bff;
+    border-image-source: url('../border.png');
+    border-image-slice: 60;
+    border-image-repeat: repeat;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    font-family: 'Georgia', serif;
+    text-align: center;
+    color: #333;
+}
+
+.certificate h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.certificate p {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.certificate .recipient {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.certificate .details {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+.certificate .signature {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1rem;
+    text-align: right;
+    z-index: 2;
+}
+
+.certificate .signature img {
+    width: 150px;
+    height: auto;
+}
+
+/* Вендорные префиксы для градиента */
+.certificate {
+    background: -webkit-linear-gradient(to bottom, #ffffff, #ff0000);
+    background: -moz-linear-gradient(to bottom, #ffffff, #c5b6a6);
+    background: -o-linear-gradient(to bottom, #ffffff, #505050);
+    background: -ms-linear-gradient(to bottom, #ffffff, #ff0000);
+} 
+
+/* Стили для каталога товаров/услуг */
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Стили для партнеров */
+.partners-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.partner-block {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.partner-block:hover {
+    transform: scale(1.05);
+}
+
+.partner-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.partner-name {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2em;
+    text-align: center;
+    letter-spacing: 0.05em; /* Кернинг */
+}
+
+/* Стили для отображения информации о последней статье */
+.latest-article {
+    position: relative;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}
+
+.latest-article-title {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.latest-article-content {
+    margin-top: 50px;
+    color: #6c757d;
+}
+
+/* Выделение первой буквы текста абзаца */
+.article p::first-letter {
+    font-size: 2em;
+    font-weight: bold;
+    color: #343a40;
+}
+
+/* Выделение первой строки текста абзаца */
+.article p::first-line {
+    font-weight: bold;
+    color: #343a40;
+}
+
+/* Добавление контекста в начале и конце фрагмента текста */
+.context::before {
+    content: "Начало контекста: ";
+    font-weight: bold;
+    color: #007bff;
+}
+
+.context::after {
+    content: " :Конец контекста";
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Оформление списка маркерами-символами юникода */
+.unicode-list li::before {
+    content: "\2022"; /* Юникод символ для маркера */
+    color: #007bff;
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+/* Изменение стиля при выделении текста */
+::selection {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+/* Стили для кнопок */
+button,
+.btn {
+    background-color: transparent; /* Прозрачный фон */
+    border: none; /* Убираем границу */
+    color: #fff; /* Наследуем цвет текста */
+    cursor: pointer; /* Указатель курсора */
+    padding: 10px 20px; /* Отступы */
+    font-size: 1rem; /* Размер шрифта */
+    transition: all 0.3s ease; /* Плавный переход */
+    ;
+}
+
+button:hover,
+.btn:hover {
+    backdrop-filter: blur(5px); /* Эффект размытия */
+    -webkit-backdrop-filter: blur(5px); /* Эффект размытия для Safari */
+    background-color: rgba(255, 255, 255, 0.2); /* Полупрозрачный фон при наведении */
+}
+
+/* Стили для модальных окон */
+.modal-content {
+    backdrop-filter: blur(10px) !important; /* Эффект размытия */
+    -webkit-backdrop-filter: blur(10px) !important; /* Эффект размытия для Safari */
+    background-color: #000000 !important; /* Полупрозрачный фон */
+    border-radius: 10px !important;  /* Закругленные углы */
+    padding: 20px !important; /* Отступы */
+}
+
+/* Стили для навигации */
+.navbar {
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.navbar .container {
+    display: fixed !important;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-brand {
+    color: #fff !important;;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    backdrop-filter: blur(5px);
+}
+.nav-item {
+    margin-left: 1rem;
+}
+.nav-link {
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 1rem;
+}
+.nav-link:hover {
+    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.2); /* Полупрозрачный фон при наведении */
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease; /* Плавный переход */
+}
+
+.card {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img-top {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.news-summary {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Количество строк */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.news-text {
+    column-count: 2; /* Количество колонок */
+    column-gap: 30px; /* Расстояние между колонками */
+}
+
+.tab-content{
+    background-color: #000000;
+    color: #ffffff;
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+}
+
+/* Анимация */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.fade-in {
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Прелоадер */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+    background-color: #343a40;
+    border-radius: 50%;
+    opacity: 0;
+    animation: dot-blink 1.5s infinite;
+}
+
+.dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes dot-blink {
+    0%, 80%, 100% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    40% {
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+
+form {
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057 !important;
+    background-color: transparent;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: transparent;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-control-file {
+    display: block;
+    width: 100%;
+}
+
+.form-control-textarea {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #3a3434 !important;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control-textarea:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.form-text {
+    display: block;
+    margin-top: 0.25rem;
+    color: #6c757d;
+}
+
+.form-check {
+    position: relative;
+    display: block;
+    padding-left: 1.25rem;
+}
+
+.form-check-input {
+    position: absolute;
+    margin-top: 0.3rem;
+    margin-left: -1.25rem;
+}
+
+.form-check-label {
+    margin-bottom: 0;
+}
+
+.form-inline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.form-inline .form-group {
+    display: flex;
+    flex: 0 0 auto;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.form-inline .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
+
+.form-inline .form-control-plaintext {
+    display: inline-block;
+}
+
+.form-inline .input-group,
+.form-inline .custom-select {
+    width: auto;
+}
+
+.form-inline .form-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    padding-left: 0;
+}
+
+.form-inline .form-check-input {
+    position: relative;
+    margin-top: 0;
+    margin-right: 0.25rem;
+    margin-left: 0;
+}
+
+.form-inline .custom-control {
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-height: 1.5rem;
+    padding-left: 0;
+}
+
+.form-inline .custom-control-label {
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+.alert {
+    font-size: 0.875rem; /* Уменьшенный размер шрифта */
+    color: #000000; /* Более темный цвет текста */
+    background-color: #d8d8d8;
+}
+
+/* custom.css */
+.vacancy-list {
+    overflow: hidden; /* Очистка плавающих блоков */
+}
+
+.vacancy-item {
+    float: left; /* Плавающий блок */
+    width: 30%; /* Ширина блока */
+    margin: 1.66%; /* Отступы между блоками */
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.vacancy-item h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.vacancy-item p {
+    font-size: 1rem;
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .vacancy-item {
+        float: none; /* Убираем плавающий блок на мобильных устройствах */
+        width: 100%; /* Ширина блока на мобильных устройствах */
+        margin: 0 0 20px 0; /* Отступы между блоками на мобильных устройствах */
+    }
+}
+
+/* custom.css */
+.animation-wrapper {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 36%;
+}
+
+.animation-container {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    background-color: #87CEEB; /* Sky blue background */
+}
+
+.road {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 75%;
+    height: 25%;
+    /*clip-path: polygon(15% 100%, 100% 100%, 65% 0, 55% 0);*/
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.grass {
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    width: 100%;
+    height: 43%;
+   
+    z-index: 0;
+}
+
+.person {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    animation: shrink 10s linear infinite;
+    transform: translateX(-50%);
+    z-index: 4;
+}
+
+.house {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    animation: grow 10s linear infinite;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.hotel-name {
+    position: absolute;
+    left: 50%;
+    bottom: 27%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    color: #000000;
+    opacity: 0;
+    animation: appear 10s linear infinite;
+    z-index: 4;
+}
+
+.tree {
+    position: absolute;
+    bottom: 80%;
+    left: 50%;
+    width: 50px;
+    height: auto;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.tree1 { animation: moveDiagonalLeft 10s linear infinite; animation-delay: 0s; }
+.tree2 { animation: moveDiagonalRight 10s linear infinite; animation-delay: 1s; }
+.tree3 { animation: moveDiagonalLeft 10s linear infinite; animation-delay: 2s; }
+.tree4 { animation: moveDiagonalRight 10s linear infinite; animation-delay: 3s; }
+.tree5 { animation: moveDiagonalLeft 10s linear infinite; animation-delay: 4s; }
+.tree6 { animation: moveDiagonalRight 10s linear infinite; animation-delay: 5s; }
+.tree7 { animation: moveDiagonalLeft 10s linear infinite; animation-delay: 6s; }
+
+.cloud {
+    position: absolute;
+    bottom: 35%;
+    width: 100px;
+    height: auto;
+    transform: translateX(-50%);
+}
+
+.cloud1 { left: 50%; animation: moveRightFromCenter 10s linear infinite; animation-delay: 0s;}
+.cloud2 { left: 50%; animation: moveLeftFromCenter 10s linear infinite; animation-delay: 1s;}
+.cloud3 { left: 50%; animation: moveRightFromCenter 10s linear infinite; animation-delay: 2s;}
+.cloud4 { left: 50%; animation: moveLeftFromCenter 10s linear infinite; animation-delay: 3s;}
+
+
+@keyframes shrink {
+    0% { height: 100px; }
+    100% { height: 50px; }
+}
+
+@keyframes grow {
+    0% { height: 100px; }
+    100% { height: 200px; }
+}
+
+@keyframes appear {
+    0% { opacity: 0; height: 100px;}
+    100% { opacity: 1; height: 200px; }
+    
+}
+
+@keyframes moveDiagonalLeft {
+    0% { bottom: 20%; left: 50%; width: 50px; }
+    100% { bottom: 0%; left: 20%; width: 300px; }
+}
+
+@keyframes moveDiagonalRight {
+    0% { bottom: 20%; left: 50%; width: 50px; }
+    100% { bottom: 0%; left: 75%; width: 300px; }
+}
+
+@keyframes moveRightFromCenter {
+    0% { bottom: 35%; left: 50%; width: 50px; }
+    100% { bottom: 15%; left: 75%; width: 300px; }
+}
+
+@keyframes moveLeftFromCenter {
+    0% { bottom: 35%; left: 50%; width: 50px; }
+    100% { bottom: 15%; left: 20%; width: 300px; }
+}
