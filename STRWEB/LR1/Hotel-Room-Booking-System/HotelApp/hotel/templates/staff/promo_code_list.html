@@ -1,0 +1,30 @@
+{% extends 'basic.html' %}
+{% block title %}Promo Codes{% endblock title %}
+{% block body %}
+<body>
+    <div class="container mt-5">
+        <h2>Promo Codes</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Discount</th>
+                    <th>Active</th>
+                    <th>Archived</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for promo_code in promo_codes %}
+                <tr>
+                    <td>{{ promo_code.code }}</td>
+                    <td>{{ promo_code.discount }}%</td>
+                    <td>{{ promo_code.active }}</td>
+                    <td>{{ promo_code.archived }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+{% endblock body %}
