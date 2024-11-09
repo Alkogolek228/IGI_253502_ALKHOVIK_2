@@ -1,0 +1,14 @@
+{% extends 'basic.html' %}
+{% block body %}
+
+<h1 class="text-center">FAQ</h1>
+
+{% for faq in faqs %}
+<div class="content-container" style="background-color: gainsboro;">
+    <details>
+        <summary> {{ faq.question }}</summary>
+        <p>{{ faq.answer }}</p>
+    </details>
+</div>
+{% endfor %}
+{% endblock body %}

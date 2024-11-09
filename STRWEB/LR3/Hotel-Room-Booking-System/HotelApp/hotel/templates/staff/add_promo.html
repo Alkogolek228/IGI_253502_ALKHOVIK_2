@@ -1,0 +1,23 @@
+{% extends 'basic.html' %}
+{% block content %}
+<form action="{% url 'addnewpromo' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="code">Promo Code:</label>
+        <input type="text" class="form-control" id="code" name="code" required>
+    </div>
+    <div class="form-group">
+        <label for="discount">Discount (%):</label>
+        <input type="number" class="form-control" id="discount" name="discount" min="1" max="100" required>
+    </div>
+    <div class="form-group">
+        <label for="active">Active:</label>
+        <input type="checkbox" id="active" name="active" value="True">
+    </div>
+    <div class="form-group">
+        <label for="archived">Archived:</label>
+        <input type="checkbox" id="archived" name="archived" value="True">
+    </div>
+    <button type="submit" class="btn btn-primary">Add Promo Code</button>
+</form>
+{% endblock content %}

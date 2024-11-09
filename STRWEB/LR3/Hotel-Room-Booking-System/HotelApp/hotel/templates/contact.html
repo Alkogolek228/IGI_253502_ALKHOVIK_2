@@ -1,0 +1,76 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %}Contacts{% endblock title %}
+{% block body %}
+<style>
+#addForm {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+}
+#contactsTable, #contactsTable th, #contactsTable td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+#contactsTable th, #contactsTable td {
+    padding: 10px;
+}
+.invalid {
+    border-color: red;
+    background-color: #fdd;
+}
+.button, button, input[type="submit"] {
+    color: black; 
+}
+</style>
+<div class="content-container">
+    <h1>Контакты сотрудников</h1>
+    {% if user.is_staff %}
+    <button onclick="showAddForm()">Добавить</button>
+    <div id="addForm" style="display: none;">
+        <form id="contactForm" onsubmit="addContact(event)">
+            {% csrf_token %}
+            <label>ФИО:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label>Описание:</label>
+            <input type="text" id="description" name="description"><br>
+            <label>Телефон:</label>
+            <input type="text" id="phonenumber" name="phonenumber" oninput="validatePhone()" required><br>
+            <span id="phoneValidation"></span>
+            <label>Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label>Фото (URL):</label>
+            <input type="text" id="imgUrl" name="img" oninput="validateUrl()" required><br>
+            <span id="urlValidation"></span>
+            <button type="submit">Добавить в таблицу</button>
+        </form>
+    </div>
+    {% endif %}
+
+    <input type="text" id="filter" placeholder="Поиск...">
+    <button onclick="filterTable()">Найти</button>
+
+    <table id="contactsTable">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">ФИО <span id="sortIcon0"></span></th>
+                <th onclick="sortTable(1)">Описание <span id="sortIcon1"></span></th>
+                <th onclick="sortTable(2)">Телефон <span id="sortIcon2"></span></th>
+                <th onclick="sortTable(3)">Email <span id="sortIcon3"></span></th>
+                <th>Фото</th>
+                <th>Выбрать</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <div id="pagination"></div>
+    {% if user.is_staff %}
+        <button onclick="generateBonus()">Премировать</button>
+    {% endif %}
+    <div id="bonusResult"></div>
+    <div id="selectedContact"></div>
+    <div id="rewardedContacts"></div>
+</div>
+<script src="{% static 'js/contacts.js' %}"></script>
+{% endblock %}

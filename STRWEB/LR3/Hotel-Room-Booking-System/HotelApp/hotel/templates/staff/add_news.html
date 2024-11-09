@@ -1,0 +1,31 @@
+{% extends 'basic.html' %}
+{% block title %}Add News{% endblock title %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Add News</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="form-group">
+            <label for="summary">Summary:</label>
+            <input type="text" class="form-control" id="summary" name="summary" required>
+        </div>
+        <div class="form-group">
+            <label for="text">Text:</label>
+            <textarea class="form-control" id="text" name="text" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="img">Image:</label>
+            <input type="file" class="form-control-file" id="img" name="img">
+        </div>
+        <div class="form-group">
+            <label for="tags">Tags:</label>
+            <input type="text" class="form-control" id="tags" name="tags" placeholder="Enter tags separated by commas">
+        </div>
+        <button type="submit" class="btn btn-primary">Add News</button>
+    </form>
+</div>
+{% endblock content %}

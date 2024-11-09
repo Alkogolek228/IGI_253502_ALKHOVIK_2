@@ -1,0 +1,274 @@
+/* custom.css */
+
+/* Подключение шрифтов */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ff0000;
+}
+
+/* Стили для контейнера */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+/* Стили для заголовков */
+h1, h2, h3, h4, h5, h6 {
+    color: #343a40;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* Стили для текста */
+p {
+    color: #6c757d;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-indent: 2em;
+}
+
+/* Стили для изображений */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Стили для видео */
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Стили для таблиц */
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    border-collapse: collapse;
+}
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+.table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+}
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #dee2e6;
+}
+
+/* Стили для ссылок */
+a:link {
+    color: blue;
+}
+a:visited {
+    color: purple;
+}
+a:hover {
+    color: red;
+}
+a:active {
+    color: green;
+}
+
+/* Стили для форм */
+input:focus, textarea:focus, select:focus {
+    outline: 2px solid #007bff;
+}
+input:required {
+    border: 2px solid red;
+}
+input:disabled {
+    background-color: #e9ecef;
+}
+input:checked {
+    background-color: #007bff;
+}
+
+/* Псевдоэлементы */
+p::first-letter {
+    font-size: 2em;
+    font-weight: bold;
+}
+p::before {
+    content: "Start: ";
+}
+p::after {
+    content: " End.";
+}
+
+/* Стили для списков */
+ul {
+    list-style-type: none;
+}
+ul li::before {
+    content: "\2022";
+    color: #007bff;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Медиа-запросы */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    p {
+        font-size: 1em;
+    }
+}
+
+/* Стили для кнопок */
+button {
+    cursor: pointer;
+}
+
+/* Стили для текста */
+.text-uppercase {
+    text-transform: uppercase;
+}
+.text-capitalize {
+    text-transform: capitalize;
+}
+.text-lowercase {
+    text-transform: lowercase;
+}
+.text-small-caps {
+    font-variant: small-caps;
+}
+.text-indent {
+    text-indent: 2em;
+}
+.text-spacing {
+    letter-spacing: 0.1em;
+    word-spacing: 0.2em;
+}
+.text-align {
+    text-align: justify;
+}
+
+/* Стили для заднего фона */
+body {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+}
+
+/* Стили для сертификата */
+.certificate {
+    border: 10px solid #007bff;
+    padding: 20px;
+    background: url('path/to/background-image.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+.certificate::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: -1;
+}
+
+/* Стили для каталога товаров/услуг */
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Стили для партнеров */
+.partners {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.partner {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    font-size: 1.2em;
+    letter-spacing: 0.05em;
+}
+
+/* Стили для навигации */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #343a40;
+    z-index: 1000;
+}
+
+/* Анимация */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.fade-in {
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Прелоадер */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+.preloader .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,15 @@
+{% extends 'basic.html' %}
+{% block title %}Vacancies{% endblock title %}
+{% block body %}
+<h1 class="text-center">Vacancies</h1>
+<div class="container">
+    <div class="vacancy-list">
+        {% for vacancy in vacancies %}
+        <div class="vacancy-item">
+            <h2>{{ vacancy.title }}</h2>
+            <p>{{ vacancy.text }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock body %}

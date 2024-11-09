@@ -1,0 +1,460 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <html itemscope itemtype="http://schema.org/WebPage"></html>
+    <title>Sample of HTML</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandbox page for HTML</title>
+    <link rel="icon" href="favicon.ico"> 
+    <meta name="description" content="This is meta description">
+    <meta name="keywords" content="HTML, CSS, JavaScript, keywords">
+
+</head>
+<style>
+    .highlight {
+        background-color: white;
+    }
+    img {
+            max-width: 100%;
+            height: auto;
+        }
+</style>
+<body>
+    <header>
+        <h1>My site</h1>
+        <u>e</u>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article itemscope itemtype="http://schema.org/Article">
+            <h2 itemprop="headline">Article</h2>
+            <p itemprop="articleBody">First paragraph</p>
+        </article>
+    
+        <section>
+            <h2>Section 2</h2>
+            <p>There is a content for section</p>
+            <details>
+                <summary>Summary</summary>
+                <p>Hidden content</p>
+            </details>
+        </section>
+            <h1>Text h1</h1>
+            <h2>Text h2</h2>
+            <h3>Text h3</h3>
+            <h4>Text h4</h4>
+            <h5>Text h5</h5>
+            <h6>Text h6</h6>
+            <p>Simple text</p>
+            <br>
+            <a href="https://youtube.com">Youtube</a>
+            <hr>
+
+            <!--Форматирование-->
+
+            <abbr>HTML</abbr>
+            <address>My phone number: +3754451111111</address>
+            <b>sub-bold text</b>
+            <bdi>hahaahah</bdi>
+            <bdo>It's bdo text tag</bdo>
+            <blockquote>
+                <p>Once I wrote "Hello, World!" in C</p>
+                <cite>Me</cite>
+            </blockquote>
+            
+            <p>Как сказал автор, <q>это был прекрасный день</q>.</p>
+            <p>Гипертекстовая разметка языков (<dfn>HTML</dfn>) - это стандартный язык разметки для создания веб-страниц.</p>
+            <p>Первоначально было написано: <del>Это неправильно.</del> Теперь мы знаем, что это <ins>правильно</ins>.</p>
+            <p>Чтобы вывести "Hello, world!" на экран, используйте следующий код: <code>console.log("Hello, world!");</code></p>
+            
+            <p>This text should be <em>itallic</em>.</p>
+
+            Самое длинное слово из химии:<br>
+            метоксихлор<wbr>диэтиламино<wbr>метил<wbr>бутил<wbr>амино<wbr>акридин
+
+            <p><ins>Underlined text with ins???</ins></p>
+            <p>PPress to save<kbd>Ctrl+S</kbd>.</p>
+            <p><mark>This text is highlighted</mark></p>
+            <meter value="0.75" min="0" max="1">Progress: 75%</meter>
+            <pre>
+                This is formated text.
+                So it has spaces and tabs.
+            </pre>
+            <progress value="30" max="100">Loading...</progress>
+            <p>Cat goes: <q>Meow!</q></p>
+            <ruby>漢<rt>かん</rt></ruby> <p><s>This text should be crossed</s></p>
+            <p>Output: <samp>Result: 123</samp></p>
+            <p>This is <small>small</small> text.</p>
+            <b>some data</b>
+            <p>There are <var>x</var> and <var>y</var> - two params</p>
+            <p>Today <time datetime="2024-09-18">18 september 2024</time> !</p>
+            <p>this text should be <u>underlined</u> fro highlighting</p>
+            <p><code>This is code example.</code></p>
+            <p><sub>This is sub</sub>, and this is <sup>sup</sup>.</p>
+            <p>HTML5 - <abbr title="HyperText Markup Language">HTML</abbr>.</p>
+            <address>Contacts: <a href="mailto:example@example.com">example@example.com</a></address>
+            <p>Template example: <template>Hello, <span id="name"></span>!</template></p>
+
+            <!--Формы и ввод-->
+            <form>
+                <fieldset>
+                    <legend>Legend</legend>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name"><br>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email"><br>
+                        <label for="password">Password:</label>   
+                        <input type="password" id="password" name="password"><br>   
+
+                        <label for="number">Number:</label>
+                        <input type="number" id="number" name="number"><br>
+
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" name="date"><br>
+
+                        <label for="datetime-local">Date and time:</label>
+                        <input type="datetime-local" id="datetime-local" name="datetime-local"><br>
+
+                        <label for="month">Month:</label>
+                        <input type="month" id="month" name="month"><br>
+
+                        <label for="time">Time:</label>
+                        <input type="time" id="time" name="time"><br>
+
+                        <label for="week">Week:</label>
+                        <input type="week" id="week" name="week"><br>
+
+                        <label for="url">URL:</label>
+                        <input type="url" id="url" name="url"><br>
+
+                        <label for="tel">Phonenumber:</label>
+                        <input type="tel" id="tel" name="tel"><br>
+
+                        <label for="color">Color:</label>
+                        <input type="color" id="color" name="color"><br>
+
+                        <label for="search">Search:</label>
+                        <input type="search" id="search" name="search"><br>
+
+                        <label for="file">File:</label>
+                        <input type="file" id="file" name="file"><br>
+
+                        <label for="range">Range:</label>
+                        <input type="range" id="range" name="range" min="0" max="100"><br>
+
+                        <label for="radio">Radiobutton:</label>
+                        <input type="radio" id="radio1" name="radio" value="option1">
+                        <label for="radio1">Radio 1</label>
+                        <input type="radio" id="radio2" name="radio" value="option2">
+                        <label for="radio2">Radio 2</label><br>
+
+                        <label for="checkbox">Checkboxes:</label>
+                        <input type="checkbox" id="checkbox" name="checkbox">
+                        <label for="checkbox">Checkbox 1</label><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Select something</legend>
+                    <label>Select</label>
+                    <select name="colors">
+                        <optgroup label="Group 1">
+                            <option value="red">Option 1</option>
+                            <option value="green">Option 2</option>
+                        </optgroup>
+                        <optgroup label="Group 2">
+                            <option value="blue">Option 3</option>
+                            <option value="yellow">Option 4</option>
+                        </optgroup>
+                    </select><br>
+                    <label>Comments:</label><br>
+                    <textarea name="comments" rows="5" cols="30"></textarea><br>
+                </fieldset>
+                <button type="submit">Submit</button>
+            </form>
+
+            <form enctype="multipart/form-data" method="post" action="http://localhost:8080/postfile.php">
+                <p>
+                    <input type="file" name="file" />
+                </p>
+                <p>
+                    <input type="submit" value="Submit" />
+                </p>
+            </form>
+
+            <datalist id="cars">
+                <option value="Volvo">
+                <option value="Saab">
+                <option value="Mercedes">
+            </datalist>
+            <input list="cars">
+            <!--Рамки-->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=GNfnYBYjejMQANgT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            <!--Изображения-->
+            <figure>
+                <img src="ads.jpg" alt="Image description">
+                <figcaption>My img</figcaption>
+                </figure>
+                
+                <img src="ads.jpg" alt="Карта" usemap="#image-map">
+                <map name="image-map">
+                    <area shape="rect" coords="0,0,80,80" href="link1.html" alt="Ref for 1st area>
+                    <area shape="circle" coords="150,100,40" href="link2.html" alt="Ref for 2nd area">
+                </map>
+                
+                <canvas id="myCanvas" width="200" height="100"></canvas>
+                <script>
+                    const canvas = document.getElementById('myCanvas');
+                    const ctx = canvas.getContext('2d');   
+                
+                    ctx.fillStyle = 'blue';
+                    ctx.fillRect(0, 0, 100, 50);
+                </script>
+                <picture>
+                    <source media="(min-width: 600px)" srcset="large.jpg">
+                    <source media="(min-width: 400px)" srcset="medium.jpg">
+                    <img src="small.jpg" alt="image">   
+                </picture>
+                
+                <svg width="200" height="100">
+                    <circle cx="100" cy="50" r="40" fill="red" />
+                </svg>
+
+                <!--Списки-->
+                <h2>Unordered list</h2>
+                <ul>
+                    <li>First</li>
+                    <li>Second</li>
+                    <li>Third</li>
+                </ul>
+
+                <h2>Ordered list</h2>
+                <ol>
+                    <li>First</li>
+                    <li>Second</li>
+                    <li>Third</li>
+                </ol>
+
+                <h2>List</h2>
+                <dl>
+                    <dt>HTML</dt>
+                    <dd>Hyper Text Markup Language</dd>
+                    <dt>CSS</dt>
+                    <dd>Cascade Style Sheet</dd>
+                </dl>
+
+                <h2>Pop Up Menu</h2>
+                <menu>
+                    <menuitem label="Open"></menuitem>
+                    <menuitem label="Save"></menuitem>
+                    <menuitem label="Exit"></menuitem>
+                </menu>
+
+                <h2>Simple Table</h2>
+                <table border="1">
+                    <tr>
+                        <th>Col1</th>
+                        <th>Col2</th>
+                        <th>Col3</th>
+                    </tr>
+                    <tr>
+                        <td>Row11</td>
+                        <td>Row21</td>
+                        <td>Row31</td>
+                    </tr>
+                    <tr>
+                        <td>Row12</td>
+                        <td>Row22</td>
+                        <td>Row32</td>
+                    </tr>
+                </table>
+
+                <h2>Table with footers and headers</h2>
+                <table>
+                    <caption>Список продуктов</caption>
+                    <thead>
+                        <tr>
+                            <th>Col1</th>
+                            <th>Col2</th>
+                            <th>Col3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Row11</td>
+                            <td>Row21</td>
+                            <td>Row31</td>
+                        </tr>
+                        <tr>
+                            <td>Row12</td>
+                            <td>Row22</td>
+                            <td>Row32</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">Total: 6 rows</td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <h2>Table with column grouping</h2>
+                <table>
+                    <colgroup>
+                        <col style="background-color: lightblue;">
+                        <col span="2" style="background-color: lightgray;">
+                    </colgroup>
+                    <tr>
+                        <th>Col1</th>
+                        <th>Col2</th>
+                        <th>Col3</th>
+                    </tr>
+                </table>
+        
+        <noscript>
+            JavaScript is disabled. Some functions aren't accesseble.
+        </noscript>
+        
+        <embed src="document.pdf" type="application/pdf" width="500" height="300">
+        <object data="video.mp4" type="video/mp4" width="320" height="240">
+            <param name="autoplay" value="true">
+        </object>
+    </main>
+    <footer>
+        <p>&copy; 2024 My sandbox</p>
+    </footer>
+    
+    <dialog id="myDialog">
+        <h2>Dialog window</h2>
+        <p>Dialog window content</p>
+    </dialog>
+    <button onclick="document.getElementById('myDialog').showModal()">Открыть диалог</button>
+    
+    <p>Today <time datetime="2024-09-18">18 september 2024</time>.</p>
+
+    <h1>Demo page</h1>
+
+    <h2>Code listing</h2>
+    <pre><code>
+        function greet(name) {
+            console.log("Hello, " + name + "!");
+        }
+    </code></pre>
+
+    <p>HTML (HyperText Markup Language) - язык разметки гипертекста.</p>
+    <p>CSS (Cascading Style Sheets) - язык описания стилей для веб-страниц.</p>
+    <blockquote>
+        "Meow" - Cat
+    </blockquote>
+
+    <p>Today: <span id="date"></span></p>
+    <script>
+        document.getElementById("date").textContent = new Date().toLocaleDateString();
+    </script>
+    <p>
+        String 1<br>
+        String 2<br>
+        String 3<br>
+        String 4
+    </p>
+
+    <a href="https://www.example.com">Ref</a>
+    <a href="ads.jpg" download="ads.jpg">Dowload</a>    <a href="#table">Go to table</a>
+
+    <div>This is div</div>
+    <ul>
+        <li>Table element</li>
+        <li>Table element</li>
+    </ul>
+    <figure>
+        <img src="image.jpg" alt="Img desc">
+        <figcaption>Img capture</figcaption>
+    </figure>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Contacts</a></li>
+        </ul>
+    </nav>
+
+    <h2 id="table">Data table</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Header 1</th>
+                <th colspan="2">Header 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td headers="col1 col2">Text</td>
+                <td>Number</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table border="1">
+        <tr>
+            <td rowspan="2">(1,1)</td>
+            <td>(1,2)</td>
+            <td>(1,3)</td>
+        </tr>
+        <tr>
+            <td colspan="2">(2,1)</td>
+        </tr>
+    </table>
+
+    <form>
+        <label for="name">Имя:</label>
+        <input type="text" id="name" required>
+        <select>
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>   
+
+
+    <iframe src="https://www.epam.com/" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>   
+    <img src="adaptive_image.jpg" alt="Adaptive image">
+    <audio controls>
+        <source src="indee.mp4" type="audio/mp4">
+    </audio>
+
+    <aside class="advertising">
+        <h2>Wiki</h2>
+        <a href="https://ad.example.com/?adid=1929&pubid=1422">
+            <section>
+                <h3>Тraning</h3>
+                <p>Some exercises?</p>
+            </section>
+        </a>
+    </aside>
+
+    <video  width="320" height="240" controls >
+        <source src="indee.mp4" type="video/mp4">
+    </video> 
+
+    <embed src="indee.mp4" width="320" height="240" type="video/mp4">
+
+    <object data="indee.mp4" width="320" height="240" type="video/mp4">
+        <param name="src" value="indee.mp4">
+        <param name="autoplay" value="false">
+        <param name="controls" value="true">
+    </object>
+
+</body>
+<script>
+    document.body.style.backgroundColor = "lightblue";
+</script>
+</html>

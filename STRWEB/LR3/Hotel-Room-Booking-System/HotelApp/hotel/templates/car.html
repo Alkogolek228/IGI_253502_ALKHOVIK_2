@@ -1,0 +1,63 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %}Cars{% endblock title %}
+{% block body %}
+
+<div class="container-fluid py-5 px-5">
+    <div id="box">
+        <div id="battery"></div>
+        <div id="text">
+            <span style="display: block;margin-bottom:15px;font-size: xx-large;"><strong>Battery
+                specifications</strong></span>
+            <span style="display: block" id="level">Battery level: unknown</span>
+            <span style="display: block" id="charging">Charging status: unknown</span>
+            <span style="display: block" id="dischargingTime">Battery charged: unknown</span>
+        </div>
+    </div>
+</div>
+
+<!-- New checkbox and controls container -->
+<div>
+    <label>
+        <input type="checkbox" id="toggle-controls"> Показать элементы управления стилями
+    </label>
+    <div id="style-controls" style="display: none;">
+        <label for="font-size">Размер шрифта:</label>
+        <input type="range" id="font-size" min="10" max="50" value="16">
+        <label for="text-color">Цвет текста:</label>
+        <input type="color" id="text-color" value="#000000">
+        <label for="background-color">Цвет фона:</label>
+        <input type="color" id="background-color" value="#ffffff">
+    </div>
+</div>
+
+<form id="car-form">
+    <div class="form-group">
+        <label for="brand">Марка автомобиля:</label>
+        <input type="text" id="brand" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="number">Номер автомобиля:</label>
+        <input type="text" id="number" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="owner">Фамилия владельца:</label>
+        <input type="text" id="owner" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Добавить автомобиль</button>
+</form>
+
+<form id="search-form" class="mt-4">
+    <div class="form-group">
+        <label for="search-brand">Поиск по марке автомобиля:</label>
+        <input type="text" id="search-brand" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Найти автомобили</button>
+</form>
+
+<div id="car-list" class="mt-4"></div>
+<div id="search-results" class="mt-4"></div>
+<script src="{% static 'js/car.js' %}"></script>
+<script src="{% static 'js/battery.js' %}"></script>
+<script src="{% static 'js/content.js' %}"></script>
+{% endblock body %}

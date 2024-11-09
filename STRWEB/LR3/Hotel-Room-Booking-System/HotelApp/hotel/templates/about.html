@@ -1,0 +1,64 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %}About{% endblock title %}
+{% block body %}
+<h1 class="text-center">About Us</h1>
+<!-- Company Information -->
+<h2 class="text-center">Our Company</h2>
+<p class="text-center">We are a leading company in the industry, committed to providing the best services to our customers.</p>
+<div class="animation-wrapper">
+    <div class="animation-container"></div>
+        <div class="road"></div>
+        <img src="{% static 'images/person.png' %}" alt="Person" class="person">
+        <img src="{% static 'images/hotel.png' %}" alt="Hotel" class="house">
+        <div class="hotel-name">Hotel Name</div>
+        <img src="{% static 'images/tree.png' %}" alt="Tree" class="tree tree1">
+        <img src="{% static 'images/tree.png' %}" alt="Tree" class="tree tree2">
+        <img src="{% static 'images/tree.png' %}" alt="Tree" class="tree tree3">
+        <img src="{% static 'images/tree.png' %}" alt="Tree" class="tree tree4">
+        <img src="{% static 'images/tree.png' %}" alt="Tree" class="tree tree5">
+        <img src="{% static 'images/tree.png' %}" alt="Tree" class="tree tree6">
+        <img src="{% static 'images/tree.png' %}" alt="Tree" class="tree tree7">
+        <img src="{% static 'images/cloud.png' %}" alt="Cloud" class="cloud cloud1">
+        <img src="{% static 'images/cloud.png' %}" alt="Cloud" class="cloud cloud2">
+        <img src="{% static 'images/cloud.png' %}" alt="Cloud" class="cloud cloud3">
+        <img src="{% static 'images/cloud.png' %}" alt="Cloud" class="cloud cloud4">
+        <img src="{% static 'images/road.png' %}" alt="Road" class="road">
+        <img src="{% static 'images/grass.png' %}" alt="Grass" class="grass">
+    </div>
+</div>
+<!-- Company History -->
+<div class="content-container">
+    <h3 class="text-center">History</h3>
+    <ul class="history-list">
+        <li>2000: Company founded</li>
+        <li>2005: Expanded to new markets</li>
+        <li>2010: Launched new product line</li>
+        <li>2015: Reached 1 million customers</li>
+        <li>2020: Celebrated 20th anniversary</li>
+    </ul>
+</div>
+<!-- Company Details -->
+<div class="content-container">
+    <h3 class="text-center">Details</h3>
+    <p><strong>Company Name:</strong> Our Company</p>
+    <p><strong>Address:</strong> 1234 Main St, Anytown, USA</p>
+    <p><strong>Phone:</strong> (123) 456-7890</p>
+    <p><strong>Email:</strong> info@ourcompany.com</p>
+</div>
+<!-- Company Certificate -->
+<h3 class="text-center">Certificate</h3>
+<div class="certificate">
+    <h1>Certificate of Achievement</h1>
+    <p>This is to certify that</p>
+    <div class="recipient">Hotel</div>
+    <p>has successfully completed certification</p>
+    <div class="details">"The prettiest Hotel"</div>
+    <p>on</p>
+    <div class="details">March 25, 2023</div>
+    <div class="signature">
+        <img src="../static/signature.png" alt="Signature">
+        <p>Instructor Name</p>
+    </div>
+</div>
+{% endblock body %}
