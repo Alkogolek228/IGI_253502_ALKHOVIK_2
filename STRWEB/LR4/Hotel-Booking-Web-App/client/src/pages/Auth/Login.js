@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { PageContainer } from '../../components/GlobalStyles/PageStyles'
 import Loader from "../../components/Loaders/Loader.js"
 import { toast } from 'react-toastify'
+import GoogleLoginButton from '../../components/Auth/GoogleLogin';
 
 const Login = () => {
 
@@ -80,6 +81,7 @@ const Login = () => {
                                 <FormButton type="submit">Log In</FormButton>
                             </ButtonsContainer>
                         </form>
+                        <GoogleLoginButton />
                     </FormContainer>
                 ) : <Loader />}
             </AuthContainer>

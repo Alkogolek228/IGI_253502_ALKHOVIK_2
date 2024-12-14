@@ -78,6 +78,10 @@ const MainMenu = () => {
             path: '/profile'
         },
         {
+            name: 'About',
+            path: '/about'
+        },
+        {
             name: 'Log Out',
             path: '/logout'
         }

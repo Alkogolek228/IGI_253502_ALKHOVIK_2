@@ -1,5 +1,5 @@
 import { getDownloadURL, ref, uploadBytesResumable, deleteObject } from '@firebase/storage'
-import moment from 'moment'
+import moment from 'moment-timezone'
 import { toast } from 'react-toastify'
 import { storage } from "./Firebase"
 import { v4 as uuidv4 } from 'uuid';
@@ -71,7 +71,6 @@ export const bulkImageUpload = async (images, room) => {
     return result
 }
 
-
 export const deleteImage = async (imgID, roomId) => {
     const imageRef = ref(storage, `images/rooms/${roomId}/roomImage-${imgID}`);
     await deleteObject(imageRef)
@@ -83,4 +82,20 @@ export const deleteImageBulk = async (images, roomId) => {
         const imageRef = ref(storage, `images/rooms/${roomId}/roomImage-${imgID}`);
         await deleteObject(imageRef)
     }));
+}
+
+export const getCurrentDateInUserTimezone = (timezone) => {
+    return moment().tz(timezone).format('DD/MM/YYYY HH:mm:ss');
+}
+
+export const getCurrentDateInUTC = () => {
+    return moment().utc().format('DD/MM/YYYY HH:mm:ss');
+}
+
+export const formatDateInUserTimezone = (date, timezone) => {
+    return moment(date).tz(timezone).format('DD/MM/YYYY HH:mm:ss');
+}
+
+export const formatDateInUTC = (date) => {
+    return moment(date).utc().format('DD/MM/YYYY HH:mm:ss');
 }

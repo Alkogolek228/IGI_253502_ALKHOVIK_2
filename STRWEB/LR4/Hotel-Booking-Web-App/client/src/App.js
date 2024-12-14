@@ -28,7 +28,8 @@ import PageLoader from "./components/Loaders/PageLoader";
 const Dashboard = React.lazy(() => import("./pages/Dashboard/Dashboard"));
 const Bookings = React.lazy(() => import("./pages/Bookings/Bookings"));
 const Profile = React.lazy(() => import("./pages/Profile/Profile"));
-const Payment = React.lazy(() => import("./pages/Payment/Payment"))
+const Payment = React.lazy(() => import("./pages/Payment/Payment"));
+const About = React.lazy(() => import("./pages/About/About"))
 
 
 function App() {
@@ -143,6 +144,18 @@ function App() {
                 element={
                   managerRoute || userRoute ? (
                     <Bookings />
+                  ) : (
+                    <Navigate to="/login" />
+                  )
+                }
+              ></Route>
+
+              <Route
+                exact
+                path="/about"
+                element={
+                  managerRoute || userRoute ? (
+                    <About />
                   ) : (
                     <Navigate to="/login" />
                   )

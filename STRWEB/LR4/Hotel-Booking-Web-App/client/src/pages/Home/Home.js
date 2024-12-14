@@ -5,6 +5,9 @@ import { GlobalContext } from '../../utils/Context'
 import { PageContainer, Text } from '../../components/GlobalStyles/PageStyles'
 import SearchBox from '../../components/SearchBox/SearchBox'
 import TravelImg from "../../assets/travel.png"
+import TimeComponent from '../../components/Time/TimeComponent'
+import BatteryComponent from '../../components/APIs/Battery/BatteryComponent';
+import Joke from '../../components/APIs/Joke';
 
 const HomeContainer = styled.div`
     display: flex;
@@ -42,7 +45,12 @@ const Home = () => {
 
     useEffect(() => {
         setPage("Home")
-    }, [])
+    }, []);
+
+    const data = [
+        { id: 1, date: new Date() },
+        { id: 2, date: new Date() }
+    ];
 
     return (
         <PageContainer style={{
@@ -63,7 +71,9 @@ const Home = () => {
             <ImgContainer>
                 <img src={TravelImg} alt="/" loading='lazy'></img>
             </ImgContainer>
-
+            <TimeComponent data={data} />
+            <BatteryComponent />
+            <Joke />
         </PageContainer>
     )
 }
